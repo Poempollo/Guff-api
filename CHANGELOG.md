@@ -1,5 +1,12 @@
 # Changelog
 
+### [v0.0.2.1] - 2025-04-29 - Javier 
+#### Security
+- Añadido un archivo .gitignore para algunos archivos críticos.
+#### Added
+- Nueva licencia
+- Readme mejorado
+
 ## Minor Update
 ### [v0.0.2] - 2025-04-29 - Javier 
 #### Added

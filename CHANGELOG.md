@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.2] - 2025-04-29 - Javier 
+#### Added
+- Requirements.txt para conseguir que Railway sepa que dependencias debe descargar en el servidor
+
 ### [v0.0.2.1] - 2025-04-29 - Javier 
 #### Security
 - Añadido un archivo .gitignore para algunos archivos críticos.

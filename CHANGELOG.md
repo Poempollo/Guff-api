@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.6] - 2025-04-30 - Javier 
+#### Added
+- Añadido un archivo GuiaAPI.md con información relevante sobre como trabajamos la api para modificarla y crear nuevos componentes.
+
 ### [v0.0.2.5] - 2025-04-30 - Javier 
 #### Added
 - Añadido el endpoint para el inicio de sesión, tan sólo recibe el email, y la contraseña.

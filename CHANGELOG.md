@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.3] - 2025-04-29 - Javier 
+#### Fixed
+- Arreglado un problema con la dependencia psycopg2 que no reconocía Railway, ahora se usa su plataforma binaria: psycopg2-binary.
+
 ### [v0.0.2.2] - 2025-04-29 - Javier 
 #### Added
 - Requirements.txt para conseguir que Railway sepa que dependencias debe descargar en el servidor

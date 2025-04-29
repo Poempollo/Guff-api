@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
-from ..schemas.userSchema import UserCreate
+from ..schemas.userSchema import UserCreate, UserLogin
 from .authUtils import create_user, verify_password, create_access_token
 from ..models.user import User
 
@@ -14,7 +14,7 @@ def register_user(db: Session, user: UserCreate):
     new_user = create_user(db, user)
     return new_user
 
-def login_user(db: Session, user: UserCreate):
+def login_user(db: Session, user: UserLogin):
     #Verificar si el usuario existe
     db_user = db.query(User).filter(User.email == user.email).first()
     if not db_user or not verify_password(user.password, db_user.hashed_password):

@@ -14,3 +14,8 @@ python -m venv venv
 pip install fastapi uvicorn
 
 - FastAPI el framework para hacer la API, y Uvicorn el servidor que la corre
+
+- Para lanzar el servidor:
+uvicorn main:app --reload
+
+- Vemos la información que devuelve, un JSON

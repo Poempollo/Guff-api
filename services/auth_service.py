@@ -1,0 +1,1 @@
+#Lógica auxiliar (enviar token, validaciones etc.)

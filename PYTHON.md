@@ -18,4 +18,7 @@ pip install fastapi uvicorn
 - Para lanzar el servidor:
 uvicorn main:app --reload
 
+- Para parar el servidor, sobre el mismo terminal:
+ctrl + c
+
 - Vemos la información que devuelve, un JSON

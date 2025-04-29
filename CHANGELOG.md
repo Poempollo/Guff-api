@@ -1,4 +1,16 @@
-# Changelog´
+# Changelog
+
+## [v0.0.1.2] - 2025-04-29 - Javier 
+### Added
+- Añadida la estructura de carpetas para la api.
+- controllers/
+- db/
+- models/
+- routers/
+- services/
+- Cada carpeta tiene un archivo .py con información adicional.
+### Fixed
+- añadido el manejo de los CORS a main.py para evitar errores.
 
 ## [v0.0.1.1] - 2025-04-29 - Javier 
 ### Added

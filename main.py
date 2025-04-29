@@ -1,7 +1,17 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # o pon tu IP específica
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Modelo de datos que va a recibir tu API
 class TokenData(BaseModel):

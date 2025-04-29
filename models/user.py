@@ -1,0 +1,1 @@
+#Modelos de datos (Pydantic + SQLAlchemy si usamos BD relacionales)

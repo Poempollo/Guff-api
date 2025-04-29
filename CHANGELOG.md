@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.4] - 2025-04-29 - Javier 
+#### Fixed
+- Arreglados más problemas con el despliegue en Railway, solucionado un problema de puertos en el main.py.
+
 ### [v0.0.2.3] - 2025-04-29 - Javier 
 #### Fixed
 - Arreglado un problema con la dependencia psycopg2 que no reconocía Railway, ahora se usa su plataforma binaria: psycopg2-binary.

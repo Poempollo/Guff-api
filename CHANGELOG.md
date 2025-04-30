@@ -1,5 +1,11 @@
 # Changelog
 
+### [v0.0.2.8] - 2025-04-30 - Javier 
+#### Fixed
+- Modificado el userService.py y el auth para que tanto el usuario, como el correo electrónico se guarden y manejen siempre en minúscula.
+#### Added
+- Añadido el create_indexes.py, que hace que la BD gestione siempre los correos y usuarios en minúscula.
+
 ### [v0.0.2.7] - 2025-04-30 - Javier 
 #### Fixed
 - Modificado el userService.py para que el registro de usuario compruebe la existencia de correo y usuario, y devuelva ambos errores si necesario.

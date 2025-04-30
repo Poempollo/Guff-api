@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from ..schemas.userSchema import UserCreate, UserLogin
 from .authUtils import create_user, verify_password, create_access_token
 from ..models.user import User
+from sqlalchemy import func
 
 def register_user(db: Session, user: UserCreate):
     errors = {}
@@ -23,10 +24,14 @@ def register_user(db: Session, user: UserCreate):
     return new_user
 
 def login_user(db: Session, user: UserLogin):
+    errors = {}
+
     #Verificar si el usuario existe
-    db_user = db.query(User).filter(User.email == user.email).first()
+    db_user = db.query(User).filter(func.lower(User.email) == user.email.lower()).first()
+
     if not db_user or not verify_password(user.password, db_user.hashed_password):
-        raise HTTPException(status_code=400, detail="Invalid credentials")
+        errors["credentials"] = "Invalid email or password"
+        raise HTTPException(status_code=400, detail=errors)
     
     #Crear el token JWT
     token = create_access_token(data={"sub": db_user.email})

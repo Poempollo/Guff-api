@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.7] - 2025-04-30 - Javier 
+#### Fixed
+- Modificado el userService.py para que el registro de usuario compruebe la existencia de correo y usuario, y devuelva ambos errores si necesario.
+
 ### [v0.0.2.6] - 2025-04-30 - Javier 
 #### Added
 - Añadido un archivo GuiaAPI.md con información relevante sobre como trabajamos la api para modificarla y crear nuevos componentes.

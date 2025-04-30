@@ -5,10 +5,18 @@ from .authUtils import create_user, verify_password, create_access_token
 from ..models.user import User
 
 def register_user(db: Session, user: UserCreate):
-    #Verificar si ya existe el usuario
-    existing_user = db.query(User).filter(User.email == user.email).first()
-    if existing_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
+    errors = {}
+
+    #Verificar si ya está en uso el correo
+    if db.query(User).filter(User.email == user.email).first():
+        errors["email"] = "Email already registered"
+    
+    #Verificar si ya está en uso el username
+    if db.query(User).filter(User.username == user.username).first():
+        errors["username"] = "Username already registered"
+
+    if errors:
+        raise HTTPException(status_code=400, detail=errors) 
     
     #Crear un nuevo usuario
     new_user = create_user(db, user)

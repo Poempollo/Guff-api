@@ -16,5 +16,10 @@ async def send_reset_password_email(email: EmailStr, reset_link: str):
         """,
         subtype="html"
     )
+    
+    try:
+        await fast_mail.send_message(message)
 
-    await fast_mail.send_message(message)
+    except Exception as e:
+        print("ERROR EN ENVÍO DE CORREO: ", str(e))
+        raise

@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.12] - 2025-05-02 - Javier 
+#### Fixed
+- Solucionado un problema con la verificación de correos en mailConfig con emailStr. FastAPI ya lo hace automáticamente.
+
 ### [v0.0.2.11] - 2025-05-02 - Javier 
 #### Fixed
 - Arreglado un fallo al intentar desplegar psycop2, este debe aparecer como psycop2-binary en el Requirements.txt. IMPORTANTE ESTOOOOOO.

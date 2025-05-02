@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.13] - 2025-05-02 - Javier 
+#### Fixed
+- Solucionado OTRO problema más con el despliegue en Railway por configuraciones erróneas.
+
 ### [v0.0.2.12] - 2025-05-02 - Javier 
 #### Fixed
 - Solucionado un problema con la verificación de correos en mailConfig con emailStr. FastAPI ya lo hace automáticamente.

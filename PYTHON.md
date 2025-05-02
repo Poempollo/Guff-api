@@ -41,5 +41,6 @@ pip install passlib[bcrypt] pyjwt
 - Para generar y manejar las claves cifradas, instalamos las siguientes dependencias:
 pip install python-dotenv
 
-- Para crear las dependencias que descargará railway en el proyecto:
-pip freeze > requirements.txt
+- CADA VEZ QUE SE INSTALA UN NUEVA DEPENDENCIA HAY QUE HACER ESTO:
+    Para crear las dependencias que descargará railway en el proyecto:
+        pip freeze > requirements.txt

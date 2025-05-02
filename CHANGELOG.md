@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.10] - 2025-05-02 - Javier 
+#### Fixed
+- Añadidas al requirements.txt las nuevas dependencias instaladas para el correo.
+
 ### [v0.0.2.9] - 2025-05-02 - Javier 
 #### Added
 - Añadida parte de la funcionalidad de recuperación de contraseñas. Actualmente tan sólo tenemos el envío del correo al usuario con el mensaje, y botón que le llevará a la página donde de verdad se hará el cambio. Por tanto, básicamente falta la página con el formulario de restablecimiento de contraseña, y la parte de la api con la que conecta y se encarga de modificar la BD.

@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.15] - 2025-05-02 - Javier 
+#### Fixed
+- Logs para tratar de debuguear problemas con el envío de correos.
+
 ### [v0.0.2.14] - 2025-05-02 - Javier 
 #### Fixed
 - Algún día dejará desplegar, por ahora solo tiramos poco a poco.

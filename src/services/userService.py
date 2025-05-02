@@ -44,7 +44,10 @@ async def send_reset_email(db: Session, email: str):
     if not user:
         raise HTTPException(status_code=404, detail={"email": "No user found with this email"})
     
-    reset_link = f"https://guff.app/reset-password?email={email}"  # usar el enlace de la petición a la api desde el front
-
-    await send_reset_password_email(email, reset_link)
-    return {"message": "Reset password email sent"}
+    try:
+        reset_link = f"https://guff.app/reset-password?email={email}"  # usar el enlace de la petición a la api desde el front
+        await send_reset_password_email(email, reset_link)
+        return {"message": "Reset password email sent"}
+    except Exception as e:
+        print("ERROR AL ENVIAR EL EMAIL DESDE userService: ", str(e))
+        raise HTTPException(status_code=500, detail="Error sending reset email")

@@ -4,6 +4,7 @@ from ..schemas.userSchema import UserCreate, UserLogin
 from .authUtils import create_user, verify_password, create_access_token
 from ..models.user import User
 from sqlalchemy import func
+from .mailService import send_reset_password_email
 
 def register_user(db: Session, user: UserCreate):
     errors = {}
@@ -36,3 +37,14 @@ def login_user(db: Session, user: UserLogin):
     #Crear el token JWT
     token = create_access_token(data={"sub": db_user.email})
     return {"access_token": token, "token_type": "bearer"}
+
+async def send_reset_email(db: Session, email: str):
+    user = db.query(User).filter(func.lower(User.email) == email.lower()).first()
+
+    if not user:
+        raise HTTPException(status_code=404, detail={"email": "No user found with this email"})
+    
+    reset_link = f"https://guff.app/reset-password?email={email}"  # usar el enlace de la petición a la api desde el front
+
+    await send_reset_password_email(email, reset_link)
+    return {"message": "Reset password email sent"}

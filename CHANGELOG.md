@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.9] - 2025-05-02 - Javier 
+#### Added
+- Añadida parte de la funcionalidad de recuperación de contraseñas. Actualmente tan sólo tenemos el envío del correo al usuario con el mensaje, y botón que le llevará a la página donde de verdad se hará el cambio. Por tanto, básicamente falta la página con el formulario de restablecimiento de contraseña, y la parte de la api con la que conecta y se encarga de modificar la BD.
+
 ### [v0.0.2.8] - 2025-04-30 - Javier 
 #### Fixed
 - Modificado el userService.py y el auth para que tanto el usuario, como el correo electrónico se guarden y manejen siempre en minúscula.

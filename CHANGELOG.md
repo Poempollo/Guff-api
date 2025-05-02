@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.11] - 2025-05-02 - Javier 
+#### Fixed
+- Arreglado un fallo al intentar desplegar psycop2, este debe aparecer como psycop2-binary en el Requirements.txt. IMPORTANTE ESTOOOOOO.
+
 ### [v0.0.2.10] - 2025-05-02 - Javier 
 #### Fixed
 - Añadidas al requirements.txt las nuevas dependencias instaladas para el correo.

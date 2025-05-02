@@ -44,3 +44,5 @@ pip install python-dotenv
 - CADA VEZ QUE SE INSTALA UN NUEVA DEPENDENCIA HAY QUE HACER ESTO:
     Para crear las dependencias que descargará railway en el proyecto:
         pip freeze > requirements.txt
+    
+    ADEMÁS, SIEMPRE CAMBIAR psycop2 a psycop2-binary RAILWAY NO RECONOCE AL PRIMERO

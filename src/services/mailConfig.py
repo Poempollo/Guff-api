@@ -9,6 +9,8 @@ conf = ConnectionConfig(
     MAIL_PORT=587,
     MAIL_SERVER="smtp.gmail.com",
     USE_CREDENTIALS=True,
+    MAIL_STARTTLS=True,
+    MAIL_SSL_TLS=False,
 )
 
 fast_mail = FastMail(conf)

@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.17] - 2025-05-05 - Javier 
+#### Deleted
+- Eliminadas las referencias a "name" en la API, para no trabajar con ese campo más.
+
 ### [v0.0.2.16] - 2025-05-05 - Javier 
 #### Fixed
 - Pequeño error en el inicio que rompía el CORS. Se trataba de hacer un .lower() a username, campo que no aparece en el login, dando el error.

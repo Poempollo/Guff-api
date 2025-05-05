@@ -24,7 +24,6 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
 @router.post("/login")
 def login(user: UserLogin, db: Session = Depends(get_db)):
     user.email = user.email.lower()
-    user.username = user.username.lower()
     return userService.login_user(db, user)
 
 @router.post("/forgot-password")

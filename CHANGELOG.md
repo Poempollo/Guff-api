@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.2.16] - 2025-05-05 - Javier 
+#### Fixed
+- Pequeño error en el inicio que rompía el CORS. Se trataba de hacer un .lower() a username, campo que no aparece en el login, dando el error.
+
 ### [v0.0.2.15] - 2025-05-02 - Javier 
 #### Fixed
 - Logs para tratar de debuguear problemas con el envío de correos.

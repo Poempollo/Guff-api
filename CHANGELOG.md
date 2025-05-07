@@ -1,6 +1,10 @@
 # Changelog
 
 ### [v0.0.3.1] - 2025-05-07 - Javier 
+#### Fixed
+- Arreglado en requirements.txt con psycop no binario que FALLAAAAAAAAAAAAAAAAAAA.
+
+### [v0.0.3.1] - 2025-05-07 - Javier 
 #### Added
 - AÑADIDO EL REQUIREMENTS.TXT.
 

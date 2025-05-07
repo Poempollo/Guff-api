@@ -24,7 +24,12 @@ def register_user(db: Session, user: UserCreate):
     
     #Crear un nuevo usuario
     new_user = create_user(db, user)
-    return new_user
+    
+    access_token = create_access_token(data={"sub": new_user.email})
+    return {
+        "access_token": access_token,
+        "token_type": "bearer"
+    }
 
 def login_user(db: Session, user: UserLogin):
     errors = {}
@@ -38,7 +43,10 @@ def login_user(db: Session, user: UserLogin):
     
     #Crear el token JWT
     token = create_access_token(data={"sub": db_user.email})
-    return {"access_token": token, "token_type": "bearer"}
+    return {
+        "access_token": token, 
+        "token_type": "bearer"
+    }
 
 async def send_reset_email(db: Session, email: str):
     user = db.query(User).filter(func.lower(User.email) == email.lower()).first()

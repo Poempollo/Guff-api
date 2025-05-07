@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.3.3] - 2025-05-07 - Javier 
+#### Fixed
+- Ya si que si que devuelve el token correctamente.
+
 ### [v0.0.3.2] - 2025-05-07 - Javier 
 #### Fixed
 - Ahora, al registrar un usuario, también devuelve un token para la sesión.

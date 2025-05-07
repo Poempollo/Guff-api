@@ -4,7 +4,7 @@ from ..schemas.userSchema import UserCreate, UserLogin
 from ..services import userService
 from ..db.sessions import SessionLocal
 from ..schemas.resetSchema import ResetPasswordRequest
-from ..services.authUtils import get_current_user
+from ..services.authUtils import get_current_user, create_access_token
 from ..models.user import User
 from ..services.deps import get_db
 
@@ -14,7 +14,10 @@ router = APIRouter()
 def register(user: UserCreate, db: Session = Depends(get_db)):
     user.email = user.email.lower()
     user.username = user.username.lower()
-    return userService.register_user(db, user)
+    new_user = userService.register_user(db, user)
+
+    access_token = create_access_token(data={"sub": new_user.email})
+    return {"token": access_token}
 
 @router.post("/login")
 def login(user: UserLogin, db: Session = Depends(get_db)):

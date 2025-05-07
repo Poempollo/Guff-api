@@ -4,16 +4,11 @@ from ..schemas.userSchema import UserCreate, UserLogin
 from ..services import userService
 from ..db.sessions import SessionLocal
 from ..schemas.resetSchema import ResetPasswordRequest
+from ..services.authUtils import get_current_user
+from ..models.user import User
+from ..services.deps import get_db
 
 router = APIRouter()
-
-#Dependencias para obtener la DB
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @router.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
@@ -32,3 +27,10 @@ async def forgot_password(
     db: Session = Depends(get_db)
 ):
     return await userService.send_reset_email(db, request.email)
+
+@router.delete("/delete-account")
+def delete_account(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    return userService.delete_user(db, current_user)

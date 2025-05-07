@@ -1,5 +1,10 @@
 # Changelog
 
+### [v0.0.3] - 2025-05-07 - Javier 
+#### Added
+- Añadida las funciones que eliminan un usuario de la bd.
+- Añadidad un archivo deps.py que incluye la funcionalidad de obtener el token de usuario de la sesión.
+
 ### [v0.0.2.17] - 2025-05-05 - Javier 
 #### Deleted
 - Eliminadas las referencias a "name" en la API, para no trabajar con ese campo más.

@@ -5,6 +5,8 @@ from .authUtils import create_user, verify_password, create_access_token
 from ..models.user import User
 from sqlalchemy import func
 from .mailService import send_reset_password_email
+from fastapi import Depends
+from ..services.authUtils import get_current_user
 
 def register_user(db: Session, user: UserCreate):
     errors = {}
@@ -51,3 +53,15 @@ async def send_reset_email(db: Session, email: str):
     except Exception as e:
         print("ERROR AL ENVIAR EL EMAIL DESDE userService: ", str(e))
         raise HTTPException(status_code=500, detail="Error sending reset email")
+
+def delete_user(db: Session, current_user: User):
+    user = db.query(User).filter(User.id == current_user.id).first()
+
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    db.delete(user)
+    db.commit()
+
+    return {"message": "Account successfully deleted"}
+

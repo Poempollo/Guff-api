@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.3.1] - 2025-05-07 - Javier 
+#### Added
+- AÑADIDO EL REQUIREMENTS.TXT.
+
 ### [v0.0.3] - 2025-05-07 - Javier 
 #### Added
 - Añadida las funciones que eliminan un usuario de la bd.

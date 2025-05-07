@@ -11,25 +11,17 @@ from ..services.authUtils import get_current_user
 def register_user(db: Session, user: UserCreate):
     errors = {}
 
-    #Verificar si ya está en uso el correo
     if db.query(User).filter(User.email == user.email).first():
         errors["email"] = "Email already registered"
     
-    #Verificar si ya está en uso el username
     if db.query(User).filter(User.username == user.username).first():
         errors["username"] = "Username already registered"
 
     if errors:
         raise HTTPException(status_code=400, detail=errors) 
-    
-    #Crear un nuevo usuario
+     
     new_user = create_user(db, user)
-    
-    access_token = create_access_token(data={"sub": new_user.email})
-    return {
-        "access_token": access_token,
-        "token_type": "bearer"
-    }
+    return new_user
 
 def login_user(db: Session, user: UserLogin):
     errors = {}

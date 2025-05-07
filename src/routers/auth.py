@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from ..schemas.userSchema import UserCreate, UserLogin
 from ..services import userService
@@ -12,16 +12,28 @@ router = APIRouter()
 
 @router.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
-    user.email = user.email.lower()
-    user.username = user.username.lower()
-    new_user = userService.register_user(db, user)
+    try:
+        user.email = user.email.lower()
+        user.username = user.username.lower()
 
-    access_token = create_access_token(data={"sub": new_user.email})
-    return {"token": access_token}
+        new_user = userService.register_user(db, user)
+        access_token = create_access_token(data={"sub": new_user.email})
+        return {"access_token": access_token, "token_type": "bearer"}
+
+    except HTTPException as http_error:
+        raise HTTPException(
+            status_code=http_error.status_code,
+            detail=http_error.detail
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error al registrar usuario: {str(e)}"
+        )
+
 
 @router.post("/login")
 def login(user: UserLogin, db: Session = Depends(get_db)):
-    user.email = user.email.lower()
     return userService.login_user(db, user)
 
 @router.post("/forgot-password")

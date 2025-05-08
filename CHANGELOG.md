@@ -1,8 +1,12 @@
 # Changelog
 
+### [v0.0.4] - 2025-05-09 - Javier 
+#### Added
+- Añadido el funcionamiento de la api para trabajar con la IA, funcionalidad limitada, posibles fallos.
+
 ### [v0.0.3.4] - 2025-05-07 - Javier 
 #### Fixed
-- Ahora devolvemos un único token tanto par ael login como para el registro.
+- Ahora devolvemos un único token tanto par el login como para el registro.
 - Arreglado un problema de encriptación con las dependencias en requirement.txt y railway.
 
 ### [v0.0.3.3] - 2025-05-07 - Javier 

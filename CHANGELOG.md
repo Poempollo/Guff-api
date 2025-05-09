@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.4.5] - 2025-05-09 - Javier 
+#### Improved
+- Cambiada la respuesta esperada por la api con respecto a una petición. Ahora recibe un ojeto en lugar de una lista, mejor a largo plazo para futuras actualizaciones.
+
 ### [v0.4.4] - 2025-05-09 - Javier 
 #### Fixed
 - Se seguía llamando mal en el main al método del chatbot.

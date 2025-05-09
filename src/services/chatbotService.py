@@ -1,7 +1,10 @@
 import httpx
-from schemas.chatbot import ChatMessage
+from ..schemas.chatbotSchema import ChatMessage
+from dotenv import load_dotenv
+import os
 
-OPENROUTER_API_KEY = "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"
+load_dotenv() # carga las variables de entorno desde el .env
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 async def get_chatbot_response(messages: list[ChatMessage]) -> str:
     headers = {
@@ -14,7 +17,7 @@ async def get_chatbot_response(messages: list[ChatMessage]) -> str:
     payload = {
         "model": "openai/gpt-3.5-turbo",
         "messages": [
-            {"role": "system", "content": "Eres un asistente amigable que ayuda con dudas generales."},
+            {"role": "system", "content": "Eres un asistente amigable que ayuda con dudas veterinarias generales."},
             *[msg.dict() for msg in messages]
         ]
     }

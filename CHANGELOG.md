@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.0.4.1] - 2025-05-09 - Javier 
+#### Fixed
+- Arregladas varias clases del chatbot, comprobaciones faltantes.
+
 ### [v0.0.4] - 2025-05-09 - Javier 
 #### Added
 - Añadido el funcionamiento de la api para trabajar con la IA, funcionalidad limitada, posibles fallos.

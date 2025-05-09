@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.4.4] - 2025-05-09 - Javier 
+#### Fixed
+- Se seguía llamando mal en el main al método del chatbot.
+
 ### [v0.4.3] - 2025-05-09 - Javier 
 #### Fixed
 - Se llamaba mal en el main al método del chatbot.

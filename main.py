@@ -17,7 +17,7 @@ app.add_middleware(
 
 # Registrar el router de autenticación
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
-app.include_router(chatbot.router, prefix="/auth", tags=["chatbot"])
+app.include_router(chatbot.router, prefix="/", tags=["chatbot"])
 
 if __name__ == "__main__":
     port = os.getenv("PORT", 8000) # El puerto de Railway

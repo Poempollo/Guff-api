@@ -1,31 +1,52 @@
+# chatbotService.py
 import httpx
-from ..schemas.chatbotSchema import ChatMessage
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+from ..schemas.chatbotSchema import ChatMessage
 
-load_dotenv() # carga las variables de entorno desde el .env
+load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
-async def get_chatbot_response(messages: list[ChatMessage]) -> str:
+API_URL = "https://openrouter.ai/api/v1/chat/completions"
+DEFAULT_MODEL = "mistralai/mistral-7b-instruct:free"
+SYSTEM_PROMPT = "Eres un asistente amigable que ayuda con dudas veterinarias generales."
+
+def build_payload(messages: list[ChatMessage], model: str = DEFAULT_MODEL):
+    return {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            *[msg.dict() for msg in messages]
+        ]
+    }
+
+# Solo cambia la firma y cómo se pasa el prompt
+async def get_chatbot_response(messages: list[ChatMessage], model: str, system_prompt: str) -> str:
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "Referer": "https://tuapp.com",
         "X-Title": "Guff Chatbot"
     }
 
     payload = {
-        "model": "openai/gpt-3.5-turbo",
+        "model": model,
         "messages": [
-            {"role": "system", "content": "Eres un asistente amigable que ayuda con dudas veterinarias generales."},
+            {"role": "system", "content": system_prompt},
             *[msg.dict() for msg in messages]
         ]
     }
 
     async with httpx.AsyncClient() as client:
-        res = await client.post("https://openrouter.ai/api/v1/chat/completions", json=payload, headers=headers)
-        if res.status_code != 200:
-            print("Error:", res.text)
-            raise Exception("Error al contactar con OpenRouter")
-        data = res.json()
-        return data["choices"][0]["message"]["content"]
+        res = await client.post(API_URL, json=payload, headers=headers)
+
+    if res.status_code != 200:
+        print("OpenRouter error:", res.status_code, res.text)
+        raise Exception(f"Error al contactar con OpenRouter: {res.status_code} - {res.text}")
+
+    data = res.json()
+    content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+
+    if not isinstance(content, str):
+        raise ValueError("La respuesta del chatbot no es un string válido")
+
+    return content

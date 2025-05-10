@@ -1,2 +1,5 @@
 # archivos sensibles
 .env
+
+# entorno virtual
+/venv

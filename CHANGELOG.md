@@ -2,6 +2,12 @@
 
 ### [v0.4.5] - 2025-05-09 - Javier 
 #### Improved
+- Mejorada la estructura en las clases del chatbot, sus respuestas y peticiones.
+#### Fixed
+- Instaladas las dependencias para cargar la KEY de la api desde el .env, funcional en local ya.
+
+### [v0.4.5] - 2025-05-09 - Javier 
+#### Improved
 - Cambiada la respuesta esperada por la api con respecto a una petición. Ahora recibe un ojeto en lugar de una lista, mejor a largo plazo para futuras actualizaciones.
 
 ### [v0.4.4] - 2025-05-09 - Javier 

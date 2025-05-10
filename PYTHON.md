@@ -10,13 +10,16 @@
     .\venv\scripts\activate
 
 - Aparece (venv) justo al lado de la ruta en el cmd.
-- Instalar FastAPI:
-    pip install fastapi uvicorn
+- Instalar todas las dependencias:
+    pip install -r requirements.txt
 
 - FastAPI el framework para hacer la API, y Uvicorn el servidor que la corre
 
 - Para lanzar el servidor:
     uvicorn main:app --reload
+
+- Rutas para Swagger y ReDoc:
+    ruta generada por el servidor /docs o /redoc
 
 - Para parar el servidor, sobre el mismo terminal:
     ctrl + c

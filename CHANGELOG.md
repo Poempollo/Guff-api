@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.1] - 2025-05-20 - Javier 
+#### Added
+- Añadida la lógica de funcionamiento de las mascotas en PetService.py. Crear, devolver, actualizar, eliminar y calcular la edad.
+
 ### [v0.5] - 2025-05-20 - Javier 
 #### Added
 - Añadida la estructura básica para las mascotas.

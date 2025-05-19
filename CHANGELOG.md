@@ -1,5 +1,11 @@
 # Changelog
 
+### [v0.5] - 2025-05-20 - Javier 
+#### Added
+- Añadida la estructura básica para las mascotas.
+- Clase pet.py que define un objeto de tipo pet (mascota) con todos sus atributos.
+- Clase petSchema.py que define la estructura que segirán y el uso con los objetos pet.
+
 ### [v0.4.5] - 2025-05-09 - Javier 
 #### Improved
 - Mejorada la estructura en las clases del chatbot, sus respuestas y peticiones.

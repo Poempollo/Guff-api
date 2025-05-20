@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.5] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglado el enrutamiento de los endpoints de las mascotas, que daban error 404.
+
 ### [v0.5.4] - 2025-05-20 - Javier 
 #### Fixed
 - Arreglado un problema de imports circulares con las clases del chatbor. Moviendo sus constantes a config/.

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from src.routers import auth, chatbot
+from src.routers import auth, chatbot, petRouter
 import os
 import uvicorn
 
@@ -18,6 +18,7 @@ app.add_middleware(
 # Registrar el router de autenticación
 app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(chatbot.router, prefix="", tags=["chatbot"])
+app.include_router(petRouter.router, prefix="/pets", tags=["pets"])
 
 if __name__ == "__main__":
     port = os.getenv("PORT", 8000) # El puerto de Railway

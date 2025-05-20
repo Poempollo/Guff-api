@@ -14,7 +14,7 @@ def create_pet(pet: PetCreate, db: Session = Depends(get_db), current_user: User
         return petService.create_pet(db, pet, current_user)
     except Exception as e:
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_ERVER_ERROR,
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error al crear mascota: {str(e)}"
         )
 

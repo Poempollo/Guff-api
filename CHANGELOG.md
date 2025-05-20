@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.6.1] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglados dos errores de escritura que petaban el servidor.
+
 ### [v0.5.6] - 2025-05-20 - Javier 
 #### Fixed
 - Arreglado un problema con las relaciones entre usuario y mascota.

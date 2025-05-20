@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.7] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglados problemas al convertir las fechas a JSON.
+
 ### [v0.5.6.1] - 2025-05-20 - Javier 
 #### Fixed
 - Arreglados dos errores de escritura que petaban el servidor.

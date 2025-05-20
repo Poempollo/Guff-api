@@ -13,8 +13,12 @@ def create_pet(db: Session, pet_data: PetCreate, current_user: User) -> Pet:
         breed=pet_data.breed,
         gender=pet_data.gender,
         birth_date=pet_data.birth_date,
-        vaccinations=[v.model_dump() for v in pet_data.vaccinations] if pet_data.vaccinations else [],
-        next_vaccines=[v.model_dump() for v in pet_data.next_vaccines] if pet_data.next_vaccines else [],
+        vaccinations=[
+            {**v.model_dump(), "date": v.date.isoformat()} for v in pet_data.vaccinations
+        ],
+        next_vaccines=[
+            {**v.model_dump(), "date": v.date.isoformat()} for v in pet_data.next_vaccines
+        ],
         photo_url=pet_data.photo_url,
         owner_id=current_user.id,
         distance_walked_km=0.0
@@ -41,8 +45,12 @@ def update_pet(db: Session, pet_id: int, pet_data: PetCreate, current_user: User
     pet.breed = pet_data.breed
     pet.gender = pet_data.gender
     pet.birth_date = pet_data.birth_date
-    pet.vaccinations = [v.model_dump() for v in pet_data.vaccinations] if pet_data.vaccinations else []
-    pet.next_vaccines = [v.model_dump() for v in pet_data.next_vaccines] if pet_data.next_vaccines else []
+    pet.vaccinations=[
+            {**v.model_dump(), "date": v.date.isoformat()} for v in pet_data.vaccinations
+        ],
+    pet.next_vaccines=[
+            {**v.model_dump(), "date": v.date.isoformat()} for v in pet_data.next_vaccines
+        ],
     pet.photo_url = pet_data.photo_url
 
     db.commit

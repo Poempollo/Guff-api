@@ -3,13 +3,12 @@ import httpx
 import os
 from dotenv import load_dotenv
 from ..schemas.chatbotSchema import ChatMessage
+from ..config.chatbotConfig import SYSTEM_PROMPT, DEFAULT_MODEL
 
 load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_MODEL = "mistralai/mistral-7b-instruct:free"
-SYSTEM_PROMPT = "Eres un asistente amigable que ayuda con dudas veterinarias generales."
 
 def build_payload(messages: list[ChatMessage], model: str = DEFAULT_MODEL):
     return {

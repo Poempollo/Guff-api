@@ -1,5 +1,49 @@
 # Changelog
 
+### [v0.5.8] - 2025-05-20 - Javier 
+#### Added
+- Creada la tabla de mascotas, y funcionamiento correcto. Merge.
+
+### [v0.5.7] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglados problemas al convertir las fechas a JSON.
+
+### [v0.5.6.1] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglados dos errores de escritura que petaban el servidor.
+
+### [v0.5.6] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglado un problema con las relaciones entre usuario y mascota.
+
+### [v0.5.5] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglado el enrutamiento de los endpoints de las mascotas, que daban error 404.
+
+### [v0.5.4] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglado un problema de imports circulares con las clases del chatbor. Moviendo sus constantes a config/.
+
+### [v0.5.3] - 2025-05-20 - Javier 
+#### Added
+- Añadidos los endpoints para obtener una mascota, actualizarla o eliminarla.
+#### Improved
+- Mejorada la estructura, modularidad y legibilidad de chatbot.py y sus endpoints.
+
+### [v0.5.2] - 2025-05-20 - Javier 
+#### Added
+- Añadidos los endpoints para crear, y obtener las mascotas de un usuario.
+
+### [v0.5.1] - 2025-05-20 - Javier 
+#### Added
+- Añadida la lógica de funcionamiento de las mascotas en PetService.py. Crear, devolver, actualizar, eliminar y calcular la edad.
+
+### [v0.5] - 2025-05-20 - Javier 
+#### Added
+- Añadida la estructura básica para las mascotas.
+- Clase pet.py que define un objeto de tipo pet (mascota) con todos sus atributos.
+- Clase petSchema.py que define la estructura que segirán y el uso con los objetos pet.
+
 ### [v0.4.5] - 2025-05-09 - Javier 
 #### Improved
 - Mejorada la estructura en las clases del chatbot, sus respuestas y peticiones.

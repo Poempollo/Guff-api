@@ -1,20 +1,20 @@
-# chatbot.py
-from fastapi import APIRouter, HTTPException, status
-from ..schemas.chatbotSchema import ChatMessage, ChatResponse
-from ..services.chatbotService import get_chatbot_response, DEFAULT_MODEL, SYSTEM_PROMPT
-from typing import List, Optional
-from pydantic import BaseModel
+from fastapi import APIRouter, HTTPException, status, Depends
+from sqlalchemy.orm import Session
+from ..schemas.chatbotSchema import ChatMessage, ChatResponse, ChatRequest
+from ..services.chatbotService import get_chatbot_response
+from ..services.deps import get_db
+from ..services.authUtils import get_current_user
+from ..models.user import User
 import httpx
 
 router = APIRouter()
 
-class ChatRequest(BaseModel):
-    messages: List[ChatMessage]
-    model: Optional[str] = DEFAULT_MODEL
-    system_prompt: Optional[str] = SYSTEM_PROMPT
-
-@router.post("/chatbot", response_model=ChatResponse)
-async def chat_with_bot(request: ChatRequest):
+@router.post("/send")
+async def chat_with_bot(
+    request: ChatRequest,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
     if not request.messages:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -34,7 +34,7 @@ async def chat_with_bot(request: ChatRequest):
             model=request.model,
             system_prompt=request.system_prompt
         )
-        return ChatResponse(role="assistant", content=content)
+        return {"role": "assistant", "content": content}
 
     except httpx.HTTPStatusError as e:
         raise HTTPException(
@@ -47,4 +47,3 @@ async def chat_with_bot(request: ChatRequest):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error interno del servidor: {str(e)}"
         )
-

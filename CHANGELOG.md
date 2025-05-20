@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.8] - 2025-05-20 - Javier 
+#### Added
+- Creada la tabla de mascotas, y funcionamiento correcto. Merge.
+
 ### [v0.5.7] - 2025-05-20 - Javier 
 #### Fixed
 - Arreglados problemas al convertir las fechas a JSON.

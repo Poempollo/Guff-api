@@ -1,5 +1,11 @@
 # Changelog
 
+### [v0.5.3] - 2025-05-20 - Javier 
+#### Added
+- Añadidos los endpoints para obtener una mascota, actualizarla o eliminarla.
+#### Improved
+- Mejorada la estructura, modularidad y legibilidad de chatbot.py y sus endpoints.
+
 ### [v0.5.2] - 2025-05-20 - Javier 
 #### Added
 - Añadidos los endpoints para crear, y obtener las mascotas de un usuario.

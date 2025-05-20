@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.6] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglado un problema con las relaciones entre usuario y mascota.
+
 ### [v0.5.5] - 2025-05-20 - Javier 
 #### Fixed
 - Arreglado el enrutamiento de los endpoints de las mascotas, que daban error 404.

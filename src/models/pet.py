@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Date, Float, JSON
 from sqlalchemy.orm import relationship
 from ..db.sessions import Base
+from .user import User
 
 class Pet(Base):
     __tablename__ = "pets"
@@ -17,4 +18,4 @@ class Pet(Base):
     photo_url = Column(String, nullable=True)
 
     owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    owner = relationship("USer", backref="pets")
+    owner = relationship(User, backref="pets")

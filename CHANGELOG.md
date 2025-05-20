@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.9.1] - 2025-05-20 - Javier 
+#### Added
+- Arreglado un fallo menor con la función de actualizar mascotas en petService.
+
 ### [v0.5.8] - 2025-05-20 - Javier 
 #### Added
 - Creada la tabla de mascotas, y funcionamiento correcto. Merge.

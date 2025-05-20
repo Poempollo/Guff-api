@@ -53,7 +53,7 @@ def update_pet(db: Session, pet_id: int, pet_data: PetCreate, current_user: User
         ],
     pet.photo_url = pet_data.photo_url
 
-    db.commit
+    db.commit()
     db.refresh(pet)
     return pet
 

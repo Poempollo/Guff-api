@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.5.4] - 2025-05-20 - Javier 
+#### Fixed
+- Arreglado un problema de imports circulares con las clases del chatbor. Moviendo sus constantes a config/.
+
 ### [v0.5.3] - 2025-05-20 - Javier 
 #### Added
 - Añadidos los endpoints para obtener una mascota, actualizarla o eliminarla.

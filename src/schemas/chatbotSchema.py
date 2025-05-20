@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Literal, List, Optional
-from ..services.chatbotService import DEFAULT_MODEL, SYSTEM_PROMPT
+from ..config.chatbotConfig import DEFAULT_MODEL, SYSTEM_PROMPT
 
 class ChatMessage(BaseModel):
     role: Literal["user", "assistant"]

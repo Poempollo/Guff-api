@@ -1,8 +1,12 @@
 # Changelog
 
-### [v0.5.9.1] - 2025-05-20 - Javier 
+### [v0.6] - 2025-05-21 - Javier 
 #### Added
-- Intentado solucionar varios fallos con el chatbot. NO PROBADO.
+- Añadida funcionalidad para añadir vacunas a una mascota.
+
+### [v0.5.9.1] - 2025-05-21- Javier 
+#### Fixed
+- Solucionados varios fallos con el chatbot. 
 
 ### [v0.5.9.1] - 2025-05-20 - Javier 
 #### Added

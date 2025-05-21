@@ -6,6 +6,10 @@ class Vaccination(BaseModel):
     name: str
     date: date
 
+class VaccinationAdd(BaseModel):
+    name: str
+    date: date
+
 class PetCreate(BaseModel):
     name: str
     species: str

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from ..schemas.petSchema import PetCreate, PetResponse
+from ..schemas.petSchema import PetCreate, PetResponse, VaccinationAdd
 from ..services import petService
 from ..services.deps import get_db
 from ..services.authUtils import get_current_user
@@ -64,4 +64,16 @@ def delete_pet(pet_id: int, db: Session = Depends(get_db), current_user: User = 
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error al eliminar la mascota: {str(e)}"
+        )
+
+@router.post("/{pet_id}/vaccines")
+def add_vaccine(pet_id: int, vaccine: VaccinationAdd, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    try:
+        return petService.add_vaccine_to_pet(db, pet_id, vaccine, current_user)
+    except HTTPException as http_error:
+        raise http_error
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error al añadir vacuna: {str(e)}"
         )

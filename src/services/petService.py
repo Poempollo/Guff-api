@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import NoResultFound
 from ..models.pet import Pet
-from ..schemas.petSchema import PetCreate, PetResponse
+from ..schemas.petSchema import PetCreate, VaccinationAdd
 from ..models.user import User
 from fastapi import HTTPException
 from datetime import datetime
@@ -56,6 +56,24 @@ def update_pet(db: Session, pet_id: int, pet_data: PetCreate, current_user: User
     db.commit()
     db.refresh(pet)
     return pet
+
+def add_vaccine_to_pet(db: Session, pet_id: int, vaccine: VaccinationAdd, current_user: User):
+    pet = get_pet_by_id(db, pet_id, current_user)
+    
+    # Asegura que la lista existe
+    if not pet.vaccinations:
+        pet.vaccinations = []
+
+    # Añadir nueva vacuna
+    pet.vaccinations.append({
+        "name": vaccine.name,
+        "date": vaccine.date.isoformat()
+    })
+
+    db.commit()
+    db.refresh(pet)
+    return pet
+
 
 def delete_pet(db: Session, pet_id: int, current_user: User):
     pet = get_pet_by_id(db, pet_id, current_user)

@@ -24,6 +24,7 @@ class PetResponse(PetCreate):
     id: int
     owner_id: int
     distance_walked_km: float = 0.0
+    age: int
 
     class Config:
         from_attributes = True # o orm_mode = True si es pydantic v1

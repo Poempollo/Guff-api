@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import NoResultFound
 from ..models.pet import Pet
-from ..schemas.petSchema import PetCreate, VaccinationAdd
+from ..schemas.petSchema import PetCreate, VaccinationAdd, PetResponse
 from ..models.user import User
 from fastapi import HTTPException
 from datetime import datetime
@@ -84,3 +84,25 @@ def delete_pet(db: Session, pet_id: int, current_user: User):
 def calculate_age(birth_date):
     today = datetime.today().date()
     return today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+
+def pet_to_response(pet: Pet) -> PetResponse:
+    birth_date = pet.birth_date
+    age = calculate_age(birth_date)
+
+    return PetResponse(
+        id=pet.id,
+        owner_id=pet.owner_id,
+        name=pet.name,
+        species=pet.species,
+        breed=pet.breed,
+        gender=pet.gender,
+        birth_date=pet.birth_date,
+        vaccinations=pet.vaccinations,
+        next_vaccines=pet.next_vaccines,
+        photo_url=pet.photo_url,
+        distance_walked_km=pet.distance_walked_km,
+        age=age
+    )
+
+def pets_to_response(pets: list[Pet]) -> list[PetResponse]:
+    return [pet_to_response(pet) for pet in pets]

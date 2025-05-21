@@ -18,29 +18,23 @@ def create_pet(pet: PetCreate, db: Session = Depends(get_db), current_user: User
             detail=f"Error al crear mascota: {str(e)}"
         )
 
-@router.get("/all")
+@router.get("/all", response_model=list[PetResponse])
 def get_user_pets(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     try:
-        return petService.get_user_pets(db, current_user)
-    except HTTPException as http_error:
-        raise http_error
+        pets = petService.get_user_pets(db, current_user)
+        return petService.pets_to_response(pets)
     except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error al obtener mascotas: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Error al obtener las mascotas: {str(e)}")
 
-@router.get("/{pet_id}")
+
+@router.get("/{pet_id}", response_model=PetResponse)
 def get_pet(pet_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     try:
-        return petService.get_pet_by_id(db, pet_id, current_user)
-    except HTTPException as http_error:
-        raise http_error
+        pet = petService.get_pet_by_id(db, pet_id, current_user)
+        return petService.pet_to_response(pet)
     except Exception as e:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error al obtener la mascota: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Error al obtener la mascota: {str(e)}")
+
 
 @router.put("/{pet_id}")
 def get_pet(pet_id: int, pet: PetCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):

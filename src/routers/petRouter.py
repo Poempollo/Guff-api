@@ -8,7 +8,7 @@ from ..models.user import User
 
 router = APIRouter()
 
-@router.post("/", response_model=PetResponse)
+@router.post("", response_model=PetResponse)
 def create_pet(pet: PetCreate, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     try:
         return petService.create_pet(db, pet, current_user)

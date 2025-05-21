@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.6.2] - 2025-05-21 - Javier 
+#### Fixed
+- Arreglado el enrutamiento para crear mascotas en petRouters.
+
 ### [v0.6.1] - 2025-05-21 - Javier 
 #### Added
 - Añadida la funcionalidad para que la api devuelva además, la edad ya calculada de la mascota.

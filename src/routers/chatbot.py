@@ -1,20 +1,12 @@
-from fastapi import APIRouter, HTTPException, status, Depends
-from sqlalchemy.orm import Session
-from ..schemas.chatbotSchema import ChatMessage, ChatResponse, ChatRequest
+from fastapi import APIRouter, HTTPException, status
+from ..schemas.chatbotSchema import ChatResponse, ChatRequest
 from ..services.chatbotService import get_chatbot_response
-from ..services.deps import get_db
-from ..services.authUtils import get_current_user
-from ..models.user import User
 import httpx
 
 router = APIRouter()
 
-@router.post("/send")
-async def chat_with_bot(
-    request: ChatRequest,
-    db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user)
-):
+@router.post("/chatbot", response_model=ChatResponse)
+async def chat_with_bot(request: ChatRequest):
     if not request.messages:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -34,7 +26,7 @@ async def chat_with_bot(
             model=request.model,
             system_prompt=request.system_prompt
         )
-        return {"role": "assistant", "content": content}
+        return ChatResponse(role="assistant", content=content)
 
     except httpx.HTTPStatusError as e:
         raise HTTPException(

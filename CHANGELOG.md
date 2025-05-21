@@ -2,6 +2,10 @@
 
 ### [v0.5.9.1] - 2025-05-20 - Javier 
 #### Added
+- Intentado solucionar varios fallos con el chatbot. NO PROBADO.
+
+### [v0.5.9.1] - 2025-05-20 - Javier 
+#### Added
 - Arreglado un fallo menor con la función de actualizar mascotas en petService.
 
 ### [v0.5.8] - 2025-05-20 - Javier 

@@ -1,11 +1,10 @@
-# chatbotService.py
 import httpx
 import os
 from dotenv import load_dotenv
+load_dotenv()
 from ..schemas.chatbotSchema import ChatMessage
 from ..config.chatbotConfig import SYSTEM_PROMPT, DEFAULT_MODEL
 
-load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -21,10 +20,12 @@ def build_payload(messages: list[ChatMessage], model: str = DEFAULT_MODEL):
 
 # Solo cambia la firma y cómo se pasa el prompt
 async def get_chatbot_response(messages: list[ChatMessage], model: str, system_prompt: str) -> str:
+    if not OPENROUTER_API_KEY:
+        raise Exception("Api Key no cargada")
+    
     headers = {
-        "Content-Type": "application/json",
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-        "X-Title": "Guff Chatbot"
+        "Content-Type": "application/json"
     }
 
     payload = {
@@ -36,6 +37,7 @@ async def get_chatbot_response(messages: list[ChatMessage], model: str, system_p
     }
 
     async with httpx.AsyncClient() as client:
+        print("HEADERS QUE SE ENVIAN --->", headers)
         res = await client.post(API_URL, json=payload, headers=headers)
 
     if res.status_code != 200:

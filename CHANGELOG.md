@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.7] - 2025-05-21 - Javier 
+#### Added
+- Añadida la estructura básica inicial para el uso de recordatorios.
+
 ### [v0.6.2] - 2025-05-21 - Javier 
 #### Fixed
 - Arreglado el enrutamiento para crear mascotas en petRouters.

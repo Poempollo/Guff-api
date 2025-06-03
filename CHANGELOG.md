@@ -1,6 +1,10 @@
 # Changelog
 
-### [v0.7] - 2025-05-21 - Javier 
+### [v0.7.1] - 2025-06-03 - Javier 
+#### Added
+- Añadidas las clases necesarias, y modificado el objeto recordatorio.
+
+### [v0.7] - 2025-06-02 - Javier 
 #### Added
 - Añadida la estructura básica inicial para el uso de recordatorios.
 

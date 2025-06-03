@@ -1,5 +1,11 @@
 # Changelog
 
+### [v0.7.2] - 2025-06-03 - Javier 
+#### Added
+- Añadida la funcionalidad de los recordatorios.
+- Se pueden crear, obtener, obtener por fecha, actualizar y borrar.
+- Clase de esquemas, modelos, servicio y router para los recordatorios creado.
+
 ### [v0.7.1] - 2025-06-03 - Javier 
 #### Added
 - Añadidas las clases necesarias, y modificado el objeto recordatorio.

@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.7.3] - 2025-06-06 - Javier 
+#### Added
+- Añadida el título a los recordatorios.
+
 ### [v0.7.2] - 2025-06-03 - Javier 
 #### Added
 - Añadida la funcionalidad de los recordatorios.

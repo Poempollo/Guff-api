@@ -4,6 +4,7 @@ from typing import Optional
 
 class ReminderBase(BaseModel):
     type: str
+    title: str
     start_date: date
     finish_date: Optional[date] = None
     text: Optional[str] = None

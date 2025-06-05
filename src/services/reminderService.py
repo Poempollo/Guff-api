@@ -15,6 +15,7 @@ def create_reminder(db: Session, reminder_data: ReminderCreate, current_user: Us
     
     reminder = Reminder(
         type=reminder_data.type,
+        title=reminder_data.title,
         start_date=reminder_data.start_date,
         finish_date=reminder_data.finish_date,
         text=reminder_data.text,
@@ -49,6 +50,7 @@ def update_reminder(db: Session, reminder_id: int, reminder_data: ReminderUpdate
     reminder = get_reminder_by_id(db, reminder_id, current_user)
 
     reminder.type = reminder_data.type
+    reminder.title = reminder_data.title
     reminder.start_date = reminder_data.start_date
     reminder.finish_date = reminder_data.finish_date
     reminder.text = reminder_data.text

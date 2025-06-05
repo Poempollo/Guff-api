@@ -7,6 +7,7 @@ class Reminder(Base):
     __tablename__ = "reminders"
 
     id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True, nullable=False)
     type = Column(String, index=True, nullable=False)
     start_date = Column(Date, nullable=False)
     finish_date = Column(Date, nullable=True)

@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.7.4] - 2025-06-06 - Javier 
+#### Fixed
+- Arreglado un problema de routers para el reminders.
+
 ### [v0.7.3] - 2025-06-06 - Javier 
 #### Added
 - Añadida el título a los recordatorios.

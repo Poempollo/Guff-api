@@ -1,5 +1,9 @@
 # Changelog
 
+### [v0.8] - 2025-06-06 - Javier 
+#### Fixed
+- Modificada la API para los recordatorios extensivamente, ahora tan sólo se va a crear la funcionalidad básica para la presentación del TFG, se crean, borran y se borran todos los recordatorios de la BD, más fácil y simple.
+
 ### [v0.7.4] - 2025-06-06 - Javier 
 #### Fixed
 - Arreglado un problema de routers para el reminders.
